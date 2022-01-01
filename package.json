@@ -1,12 +1,9 @@
 {
   "name": "ng-former",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/3omar3allam/ng-former.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
     "rxjs": "^7.5.1",
