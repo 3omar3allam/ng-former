@@ -1,0 +1,27 @@
+<ng-container [ngSwitch]="field.controlType">
+  <app-textbox-control
+    *ngSwitchCase="'textbox'"
+    [field]="field"
+    [form]="form"
+  ></app-textbox-control>
+  <app-dropdown-control
+    *ngSwitchCase="'dropdown'"
+    [field]="field"
+    [form]="form"
+  ></app-dropdown-control>
+  <app-checkbox-control
+    *ngSwitchCase="'checkbox'"
+    [field]="field"
+    [form]="form"
+  ></app-checkbox-control>
+  <app-radio-control
+    *ngSwitchCase="'radio'"
+    [field]="field"
+    [form]="form"
+  ></app-radio-control>
+  <app-datepicker-control
+    *ngSwitchCase="'datepicker'"
+    [field]="field"
+    [form]="form"
+  ></app-datepicker-control>
+</ng-container>

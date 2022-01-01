@@ -1,0 +1,14 @@
+<mat-form-field
+  [formGroup]="form"
+  appearance="outline"
+  style="width: 100%;"
+>
+  <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+  <input
+    matInput
+    [formControlName]="field.key"
+    [id]="field.key"
+    [type]="field.type ?? 'text'"
+  />
+</mat-form-field>
+<input-validator [form]="form" [field]="field"></input-validator>

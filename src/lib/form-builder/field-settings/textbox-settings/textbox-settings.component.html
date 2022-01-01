@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Width</mat-label>
+      <mat-select formControlName="width">
+        <mat-option value="50%">50%</mat-option>
+        <mat-option value="100%">100%</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Default Value</mat-label>
+      <input matInput formControlName="value" />
+    </mat-form-field>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of textboxTypes" [value]="type">
+          {{ type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-6 d-flex align-items-center" [formGroup]="form">
+    <mat-checkbox formControlName="required">
+      <mat-label>Required</mat-label>
+    </mat-checkbox>
+  </div>
+  <div class="col-12 row" [hidden]="f.type.value != 'number'" [formGroup]="form">
+    <div class="col-6">
+      <mat-checkbox formControlName="hasMin">
+        <mat-label>Minimum</mat-label>
+      </mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Minimum Value</mat-label>
+        <input matInput formControlName="min" type="number" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-12 row" [hidden]="f.type.value != 'number'" [formGroup]="form">
+    <div class="col-6">
+      <mat-checkbox formControlName="hasMax">
+        <mat-label>Maximum</mat-label>
+      </mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Maximum Value</mat-label>
+        <input matInput formControlName="max" type="number" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-12 row" [hidden]="f.type.value != 'text'" [formGroup]="form">
+    <div class="col-6">
+      <mat-checkbox formControlName="hasMinLength">
+        <mat-label>Minimum</mat-label>
+      </mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Minimum Length</mat-label>
+        <input matInput formControlName="minLength" type="number" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-12 row" [hidden]="f.type.value != 'text'" [formGroup]="form">
+    <div class="col-6">
+      <mat-checkbox formControlName="hasMaxLength">
+        <mat-label>Maximum</mat-label>
+      </mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Maximum Length</mat-label>
+        <input matInput formControlName="maxLength" type="number" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>

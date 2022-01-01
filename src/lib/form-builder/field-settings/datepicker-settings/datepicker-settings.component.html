@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Width</mat-label>
+      <mat-select formControlName="width">
+        <mat-option value="50%">50%</mat-option>
+        <mat-option value="100%">100%</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Default Value</mat-label>
+      <input
+        matInput
+        formControlName="value"
+        readonly
+        [matDatepicker]="pickerDefault"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="pickerDefault"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerDefault></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-6 d-flex align-items-center" [formGroup]="form">
+    <mat-checkbox formControlName="required">
+      <mat-label>Required</mat-label>
+    </mat-checkbox>
+  </div>
+  <div class="col-12 row" [formGroup]="form">
+    <div class="col-6">
+      <mat-checkbox formControlName="hasMin">
+        <mat-label>Minimum</mat-label>
+      </mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Minimum</mat-label>
+        <input
+          matInput
+          formControlName="min"
+          readonly
+          [matDatepicker]="pickerMin"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="pickerMin"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #pickerMin></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-12 row" [formGroup]="form">
+    <div class="col-6">
+      <mat-checkbox formControlName="hasMax">
+        <mat-label>Maximum</mat-label>
+      </mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Maximum</mat-label>
+        <input
+          matInput
+          formControlName="max"
+          readonly
+          [matDatepicker]="pickerMax"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="pickerMax"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #pickerMax></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div style="font-size: 0.7rem; color: red;" *ngIf="isInvalid">
+  <span *ngIf="control.errors && control.errors['required']">
+    {{ field.label }} is required
+  </span>
+  <span *ngIf="control.errors && control.errors['email']">
+    {{ field.label }} is not a valid email
+  </span>
+  <span *ngIf="control.errors && control.errors['min'] as min">
+    {{ field.label }} must be at least {{ min.min }}
+  </span>
+  <span *ngIf="control.errors && control.errors['max'] as max">
+    {{ field.label }} must be at most {{ max.max }}
+  </span>
+  <span *ngIf="control.errors && control.errors['minlength'] as minlength">
+    {{ field.label }} must contain at least {{ minlength.requiredLength }} characters
+  </span>
+  <span *ngIf="control.errors && control.errors['maxlength'] as maxlength">
+    {{ field.label }} must contain maximum {{ maxlength.requiredLength }} characters
+  </span>
+</div>

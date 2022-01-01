@@ -1,0 +1,17 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="d-flex flex-wrap" style="width: 100%;">
+      <div *ngFor="let field of fields" [ngStyle]="{ width: field.width }">
+        <app-field-base-control
+          style="width: 100%;"
+          [field]="field"
+          [form]="form"
+        ></app-field-base-control>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+</div>

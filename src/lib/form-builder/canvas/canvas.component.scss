@@ -1,0 +1,10 @@
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.canvas {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}

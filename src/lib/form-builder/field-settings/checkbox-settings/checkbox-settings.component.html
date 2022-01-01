@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Width</mat-label>
+      <mat-select formControlName="width">
+        <mat-option value="50%">50%</mat-option>
+        <mat-option value="100%">100%</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Default Value</mat-label>
+      <mat-select formControlName="value">
+        <mat-option [value]="true">
+          Chceked
+        </mat-option>
+        <mat-option [value]="false">
+          Un-checked
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="col-6"></div>
+  </div>
+</div>

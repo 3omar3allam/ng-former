@@ -1,0 +1,27 @@
+<ng-container [ngSwitch]="field.controlType">
+  <app-textbox-preview
+    *ngSwitchCase="'textbox'"
+    [field]="field"
+    [index]="index"
+  ></app-textbox-preview>
+  <app-dropdown-preview
+    *ngSwitchCase="'dropdown'"
+    [field]="field"
+    [index]="index"
+  ></app-dropdown-preview>
+  <app-checkbox-preview
+    *ngSwitchCase="'checkbox'"
+    [field]="field"
+    [index]="index"
+  ></app-checkbox-preview>
+  <app-radio-preview
+    *ngSwitchCase="'radio'"
+    [field]="field"
+    [index]="index"
+  ></app-radio-preview>
+  <app-datepicker-preview
+    *ngSwitchCase="'datepicker'"
+    [field]="field"
+    [index]="index"
+  ></app-datepicker-preview>
+</ng-container>

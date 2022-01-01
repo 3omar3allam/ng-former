@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Width</mat-label>
+      <mat-select formControlName="width">
+        <mat-option value="50%">50%</mat-option>
+        <mat-option value="100%">100%</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field [formGroup]="form">
+      <mat-label>Default Value</mat-label>
+      <mat-select formControlName="value">
+        <mat-option
+          *ngFor="let option of options.controls"
+          [value]="option.get('key')!.value"
+        >
+          {{ option.get('value')!.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <div class="row align-items-end" [formGroup]="optionForm">
+      <div class="col-4">
+        <mat-form-field>
+          <mat-label>Key</mat-label>
+          <input matInput formControlName="key" />
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field>
+          <mat-label>Value</mat-label>
+          <input matInput formControlName="value" />
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <button
+          class="btn"
+          type="button"
+          [disabled]="optionForm.invalid"
+          (click)="addOption()"
+        >
+          <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-6" [formGroup]="form">
+    <table class="table table-bordered" style="width: 100%;">
+      <!-- <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th></th>
+        </tr>
+      </thead> -->
+      <tbody>
+        <ng-container formArrayName="options">
+          <tr *ngFor="let option of options.controls; let i = index">
+            <td>{{ option.get('key')?.value }}</td>
+            <td>{{ option.get('value')?.value }}</td>
+            <td>
+              <button type="button" class="btn" (click)="deleteOption(i)">
+                <fa-icon
+                  class="text-danger"
+                  [icon]="['fas', 'trash']"
+                ></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-6" [formGroup]="form">
+    <mat-checkbox formControlName="required">
+      <mat-label>Required</mat-label>
+    </mat-checkbox>
+  </div>
+</div>

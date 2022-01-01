@@ -1,0 +1,14 @@
+<mat-form-field appearance="outline" style="width: 100%;">
+  <input matInput [hidden]="true" />
+  <mat-checkbox [id]="field.key" [checked]="!!field.value" [disabled]="true">
+    <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+  </mat-checkbox>
+  <span class="preview-suffix">
+    <button class="btn m-0 p-1" (click)="editField()">
+      <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+    </button>
+    <button class="btn m-0 p-1" (click)="removeField()">
+      <fa-icon class="text-danger" [icon]="['fas', 'trash']"></fa-icon>
+    </button>
+  </span>
+</mat-form-field>

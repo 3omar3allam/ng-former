@@ -1,0 +1,19 @@
+<mat-form-field appearance="outline" style="width: 100%;">
+  <input matInput [hidden]="true" />
+  <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+  <mat-radio-group [id]="field.key" [value]="field.value" class="p-3" [disabled]="true">
+    <div class="d-flex flex-column">
+      <mat-radio-button *ngFor="let opt of field.options" [value]="opt.key">
+        {{ opt.value }}
+      </mat-radio-button>
+    </div>
+  </mat-radio-group>
+  <span class="preview-suffix">
+    <button class="btn m-0 p-1" (click)="editField()">
+      <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+    </button>
+    <button class="btn m-0 p-1" (click)="removeField()">
+      <fa-icon class="text-danger" [icon]="['fas', 'trash']"></fa-icon>
+    </button>
+  </span>
+</mat-form-field>

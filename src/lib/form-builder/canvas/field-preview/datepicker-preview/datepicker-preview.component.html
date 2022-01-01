@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline">
+  <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+  <input matInput [id]="field.key" [value]="field.value" [disabled]="true" />
+  <mat-datepicker-toggle matSuffix [disabled]="true"></mat-datepicker-toggle>
+  <span class="preview-suffix">
+    <button class="btn m-0 p-1" (click)="editField()">
+      <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+    </button>
+    <button class="btn m-0 p-1" (click)="removeField()">
+      <fa-icon class="text-danger" [icon]="['fas', 'trash']"></fa-icon>
+    </button>
+  </span>
+</mat-form-field>

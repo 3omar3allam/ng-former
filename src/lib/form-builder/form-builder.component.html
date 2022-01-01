@@ -1,0 +1,17 @@
+<div cdkDropListGroup>
+  <div class="row" style="height: 100%;">
+    <div class="col-3">
+      <h2>Components</h2>
+      <app-field-library></app-field-library>
+    </div>
+    <div class="col-9">
+      <div class="d-flex justify-content-between" >
+        <h2>Preview</h2>
+        <button class="btn btn-primary" [disabled]="!fields?.length" (click)="onFinish()">
+          Finish
+        </button>
+      </div>
+      <app-canvas [fields]="fields"></app-canvas>
+    </div>
+  </div>
+</div>

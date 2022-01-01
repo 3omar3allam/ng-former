@@ -1,0 +1,18 @@
+<mat-form-field appearance="outline">
+  <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+    <input
+      matInput
+      [id]="field.key"
+      [type]="field.type ?? 'text'"
+      [value]="field.value"
+      [disabled]="true"
+    />
+  <span class="preview-suffix">
+    <button class="btn m-0 p-1" (click)="editField()">
+      <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+    </button>
+    <button class="btn m-0 p-1" (click)="removeField()">
+      <fa-icon class="text-danger" [icon]="['fas', 'trash']"></fa-icon>
+    </button>
+  </span>
+</mat-form-field>

@@ -1,0 +1,9 @@
+<mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+<mat-radio-group [id]="field.key" [formControlName]="field.key" class="p-3">
+  <div class="d-flex flex-column">
+    <mat-radio-button *ngFor="let opt of field.options" [value]="opt.key">
+      {{ opt.value }}
+    </mat-radio-button>
+  </div>
+</mat-radio-group>
+<input-validator [form]="form" [field]="field"></input-validator>

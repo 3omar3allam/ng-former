@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>{{ edit ? 'Edit' : 'New' }} {{ controlType }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" #localForm="ngForm" (submit)="onSubmit($event)">
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label>Key</mat-label>
+          <input matInput formControlName="key" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label>Label</mat-label>
+          <input matInput formControlName="label" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <ng-container>
+      <ng-container [ngSwitch]="controlType">
+        <app-textbox-settings
+          [form]="form"
+          *ngSwitchCase="'textbox'"
+        ></app-textbox-settings>
+        <app-dropdown-settings
+          [form]="form"
+          *ngSwitchCase="'dropdown'"
+        ></app-dropdown-settings>
+        <app-checkbox-settings
+          [form]="form"
+          *ngSwitchCase="'checkbox'"
+        ></app-checkbox-settings>
+        <app-dropdown-settings
+          [form]="form"
+          *ngSwitchCase="'radio'"
+        ></app-dropdown-settings>
+        <app-datepicker-settings
+        [form]="form"
+        *ngSwitchCase="'datepicker'"
+      ></app-datepicker-settings>
+      </ng-container>
+    </ng-container>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button
+        mat-raised-button
+        [disabled]="form.invalid"
+        color="primary"
+        type="submit"
+      >
+        {{ edit ? 'Save' : 'Add' }}
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>
