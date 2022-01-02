@@ -9,7 +9,7 @@ import { FieldBase } from '../../shared/field';
 })
 export class InputValidatorComponent {
   @Input() form!: FormGroup;
-  @Input() field!: FieldBase;
+  @Input() field!: FieldBase<any>;
   constructor() { }
 
   get control() {

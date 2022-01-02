@@ -7,8 +7,8 @@ import { FieldBase } from '../shared/field';
   styleUrls: ['./form-builder.component.scss']
 })
 export class FormBuilderComponent implements OnInit {
-  fields: FieldBase[] = [];
-  @Output() complete = new EventEmitter<FieldBase[]>();
+  fields: FieldBase<any>[] = [];
+  @Output() complete = new EventEmitter<FieldBase<any>[]>();
 
   ngOnInit(): void {
   }

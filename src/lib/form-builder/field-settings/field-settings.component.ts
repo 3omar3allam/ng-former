@@ -11,7 +11,7 @@ import { FieldSettingsValidators } from './field-settings.validators';
 export interface FieldSettingsOptions {
   controlType: ControlType,
   index?: number | null,
-  fieldToEdit?: FieldBase | null
+  fieldToEdit?: FieldBase<any> | null
 }
 
 @Component({

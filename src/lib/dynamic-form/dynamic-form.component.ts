@@ -9,7 +9,7 @@ import { DynamicFormService } from './dynamic-form.service';
   templateUrl: './dynamic-form.component.html',
 })
 export class DynamicFormComponent implements OnInit {
-  @Input() fields: FieldBase[] | null = [];
+  @Input() fields: FieldBase<any>[] | null = [];
   @Output() submit = new EventEmitter<any>();
   form!: FormGroup;
   payLoad = '';
@@ -17,7 +17,7 @@ export class DynamicFormComponent implements OnInit {
   constructor(private dfs: DynamicFormService) {}
 
   ngOnInit() {
-    this.form = this.dfs.toFormGroup(this.fields as FieldBase[]);
+    this.form = this.dfs.toFormGroup(this.fields as FieldBase<any>[]);
   }
 
   onSubmit() {

@@ -9,7 +9,7 @@ import { FormBuilderService } from '../form-builder.service';
   styleUrls: ['../form-builder.component.scss', './canvas.component.scss'],
 })
 export class CanvasComponent implements OnInit {
-  @Input() fields!: FieldBase[];
+  @Input() fields!: FieldBase<any>[];
 
   constructor(
     private fbs: FormBuilderService
@@ -32,7 +32,7 @@ export class CanvasComponent implements OnInit {
     });
   }
 
-  drop(event: CdkDragDrop<FieldBase[]>) {
+  drop(event: CdkDragDrop<FieldBase<any>[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
     }

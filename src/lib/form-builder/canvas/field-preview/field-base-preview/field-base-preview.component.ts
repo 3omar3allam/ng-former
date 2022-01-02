@@ -8,5 +8,5 @@ import { FieldBase } from '../../../../shared/field';
 })
 export class FieldBasePreviewComponent {
   @Input() index!: number;
-  @Input() field!: FieldBase;
+  @Input() field!: FieldBase<any>;
 }

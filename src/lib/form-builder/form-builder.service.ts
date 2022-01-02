@@ -7,7 +7,7 @@ import { FieldSettingsComponent, FieldSettingsOptions } from "./field-settings/f
 
 @Injectable()
 export class FormBuilderService {
-  private _fieldCreated$ = new Subject<FieldBase>();
+  private _fieldCreated$ = new Subject<FieldBase<any>>();
   private _fieldDeleted$ = new Subject<number>();
   private _editIndex!: number | null;
 
@@ -17,7 +17,7 @@ export class FormBuilderService {
     _dialog.afterAllClosed.subscribe(() => this._editIndex = null);
   }
 
-  get fieldCreated$(): Observable<FieldWithIndex> {
+  get fieldCreated$(): Observable<FieldWithIndex<any>> {
     return this._fieldCreated$
       .asObservable()
       .pipe(
@@ -42,12 +42,12 @@ export class FormBuilderService {
     });
   }
 
-  createNewField(field: FieldBase) {
+  createNewField(field: FieldBase<any>) {
     this._fieldCreated$.next(field);
     this._dialog.closeAll();
   }
 
-  editField(field: FieldBase, index: number | null) {
+  editField(field: FieldBase<any>, index: number | null) {
     this._editIndex = index;
     this._fieldCreated$.next(field);
     this._dialog.closeAll();
@@ -57,7 +57,7 @@ export class FormBuilderService {
     this._fieldDeleted$.next(index);
   }
 
-  castPerType(field: FieldBase): FieldBase {
+  castPerType(field: FieldBase<any>): FieldBase<any> {
     switch (field.controlType) {
       case 'textbox':
         return field as TextboxField;
@@ -75,7 +75,7 @@ export class FormBuilderService {
   }
 }
 
-interface FieldWithIndex {
+interface FieldWithIndex<T> {
   index: number | null,
-  field: FieldBase
+  field: FieldBase<T>
 }

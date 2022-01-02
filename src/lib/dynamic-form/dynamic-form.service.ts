@@ -4,39 +4,39 @@ import { DatepickerField, FieldBase, TextboxField } from '../shared/field';
 
 @Injectable()
 export class DynamicFormService {
-  getTestControls(): FieldBase[] {
+  getTestControls(): FieldBase<any>[] {
     return [
-      new TextboxField({
+      {
         type: 'text',
         key: 'firstName',
         label: 'First name',
         width: '50%',
         minLength: 4,
-      }),
-      new TextboxField({
+      } as TextboxField,
+      {
         type: 'text',
         key: 'lastName',
         label: 'Last name',
         width: '50%',
-      }),
-      new TextboxField({
+      } as TextboxField,
+      {
         type: 'email',
         key: 'email',
         label: 'Email',
         required: true,
         width: '100%',
-      }),
-      new TextboxField({
+      } as TextboxField,
+      {
         type: 'number',
         key: 'age',
         label: 'Age',
         width: '100%',
         min: 18,
-      })
+      } as TextboxField,
     ]
   }
 
-  toFormGroup(fields: FieldBase[]) {
+  toFormGroup(fields: FieldBase<any>[]) {
     const group: any = {};
 
     for (let field of fields) {

@@ -8,6 +8,6 @@ import { FieldBase } from '../../shared/field';
   styleUrls: ['./field-base-control.component.scss']
 })
 export class FieldBaseControlComponent {
-  @Input() field!: FieldBase;
+  @Input() field!: FieldBase<any>;
   @Input() form!: FormGroup;
 }
