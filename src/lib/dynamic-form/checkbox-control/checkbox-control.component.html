@@ -1,4 +1,6 @@
-<mat-checkbox [id]="field.key" [formControlName]="field.key">
-  <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
-</mat-checkbox>
-<input-validator [form]="form" [field]="field"></input-validator>
+<ng-container [formGroup]="form">
+  <mat-checkbox [id]="field.key" [formControlName]="field.key">
+    <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+  </mat-checkbox>
+  <input-validator [form]="form" [field]="field"></input-validator>
+</ng-container>
