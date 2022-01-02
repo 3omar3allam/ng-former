@@ -13,8 +13,8 @@ export interface FieldBase<T> {
 export interface TextboxField extends FieldBase<any> {
   minLength?: number;
   maxLength?: number;
-  min?: number;
-  max?: number;
+  min?: string;
+  max?: string;
   type?: TextboxType;
 }
 

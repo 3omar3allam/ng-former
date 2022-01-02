@@ -31,7 +31,7 @@ export class DynamicFormService {
         key: 'age',
         label: 'Age',
         width: '100%',
-        min: 18,
+        min: "18",
       } as TextboxField,
     ]
   }
@@ -60,10 +60,16 @@ export class DynamicFormService {
         }
         else if (textbox.type == 'number') {
           if (textbox.min != null) {
-            validators.push(Validators.min(textbox.min));
+            try {
+              let min = parseFloat(textbox.min);
+              validators.push(Validators.min(min));
+            } catch {}
           }
           if (textbox.max != null) {
-            validators.push(Validators.max(textbox.max));
+            try {
+              let max = parseFloat(textbox.max);
+              validators.push(Validators.max(max));
+            } catch {}
           }
         }
       }
