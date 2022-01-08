@@ -10,7 +10,7 @@ import { DynamicFormService } from './dynamic-form.service';
 })
 export class DynamicFormComponent implements OnInit {
   @Input() fields: FieldBase<any>[] | null = [];
-  @Output() submit = new EventEmitter<any>();
+  @Output() formSubmit = new EventEmitter<any>();
   form!: FormGroup;
   payLoad = '';
 
@@ -21,6 +21,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submit.emit(this.form.getRawValue());
+    debugger;
+    this.formSubmit.emit(this.form.getRawValue());
   }
 }

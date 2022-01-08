@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FieldBase } from '../shared/field';
 import { FormBuilderService } from './form-builder.service';
 
@@ -8,7 +8,8 @@ import { FormBuilderService } from './form-builder.service';
   styleUrls: ['./form-builder.component.scss']
 })
 export class FormBuilderComponent implements OnInit {
-  fields: FieldBase<any>[] = [];
+  @Input() fields: FieldBase<any>[] = [];
+  @Input() disableSubmit = false;
   @Output() complete = new EventEmitter<FieldBase<any>[]>();
 
   constructor(private fbs: FormBuilderService) { }

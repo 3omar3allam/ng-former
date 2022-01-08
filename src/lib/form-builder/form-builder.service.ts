@@ -60,15 +60,15 @@ export class FormBuilderService {
   castPerType(field: FieldBase<any>): FieldBase<any> {
     switch (field.controlType) {
       case 'textbox':
-        return field as TextboxField;
+        return new TextboxField(field);
       case 'dropdown':
-        return field as DropdownField;
+        return new DropdownField(field);
       case 'checkbox':
-        return field as CheckboxField;
+        return new CheckboxField(field);
       case 'radio':
-        return field as RadioField;
+        return new RadioField(field);
       case 'datepicker':
-        return field as DatepickerField;
+        return new DatepickerField(field);
       default:
         throw new TypeError("unknown control type");
     }

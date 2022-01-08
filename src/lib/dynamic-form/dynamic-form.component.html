@@ -1,7 +1,7 @@
 <div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <form (submit)="onSubmit()" [formGroup]="form">
     <div class="d-flex flex-wrap" style="width: 100%;">
-      <div *ngFor="let field of fields" [ngStyle]="{ width: field.width }">
+      <div *ngFor="let field of fields" [ngStyle]="{ width: field.width }" class="d-flex align-items-center">
         <app-field-base-control
           style="width: 100%;"
           [field]="field"
@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="form-row">
+    <div class="d-flex justify-content-end p-2">
       <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
     </div>
   </form>
