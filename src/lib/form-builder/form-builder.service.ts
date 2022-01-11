@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { Observable, Subject } from "rxjs";
 import { map } from "rxjs/operators";
 import { CheckboxField, DatepickerField, DropdownField, FieldBase, RadioField, TextboxField } from "../shared/field";
@@ -10,6 +10,7 @@ export class FormBuilderService {
   private _fieldCreated$ = new Subject<FieldBase<any>>();
   private _fieldDeleted$ = new Subject<number>();
   private _editIndex!: number | null;
+  private _openModal: MatDialogRef<FieldSettingsComponent, any> | undefined;
 
   constructor(
     private _dialog: MatDialog,
@@ -35,7 +36,7 @@ export class FormBuilderService {
   }
 
   openSettings(options: FieldSettingsOptions) {
-    this._dialog.open(FieldSettingsComponent, {
+    this._openModal = this._dialog.open(FieldSettingsComponent, {
       data: options,
       maxWidth: '50%',
       maxHeight: '85%',
@@ -44,13 +45,17 @@ export class FormBuilderService {
 
   createNewField(field: FieldBase<any>) {
     this._fieldCreated$.next(field);
-    this._dialog.closeAll();
+    // this._dialog.closeAll();
+    this._openModal?.close();
+    this._openModal = undefined;
   }
 
   editField(field: FieldBase<any>, index: number | null) {
     this._editIndex = index;
     this._fieldCreated$.next(field);
-    this._dialog.closeAll();
+    // this._dialog.closeAll();
+    this._openModal?.close();
+    this._openModal = undefined;
   }
 
   removeField(index: number) {
