@@ -10,6 +10,7 @@ import { FormBuilderService } from './form-builder.service';
 export class FormBuilderComponent implements OnInit {
   @Input() fields: FieldBase<any>[] = [];
   @Input() disableSubmit = false;
+  @Input() submitText = "Build";
   @Output() complete = new EventEmitter<FieldBase<any>[]>();
 
   constructor(private fbs: FormBuilderService) { }
@@ -18,7 +19,6 @@ export class FormBuilderComponent implements OnInit {
   }
 
   onFinish() {
-    console.log(this.fields.map(p => this.fbs.castPerType(p)));
     this.complete.emit(this.fields.map(p => this.fbs.castPerType(p)));
   }
 }
