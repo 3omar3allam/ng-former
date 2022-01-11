@@ -10,6 +10,7 @@ import { FormBuilderService } from './form-builder.service';
 export class FormBuilderComponent implements OnInit {
   @Input() fields: FieldBase<any>[] = [];
   @Input() disableSubmit = false;
+  @Input() required = false;
   @Input() submitText = "Build";
   @Output() complete = new EventEmitter<FieldBase<any>[]>();
 
